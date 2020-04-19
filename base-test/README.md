@@ -1,0 +1,1 @@
+base-service下各模块的集成测试
