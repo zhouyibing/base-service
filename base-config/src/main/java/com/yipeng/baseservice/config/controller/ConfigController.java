@@ -1,6 +1,6 @@
 package com.yipeng.baseservice.config.controller;
 
-import cn.hutool.core.lang.Func;
+import com.yipeng.baseservice.config.model.db.ConfigModel;
 import com.yipeng.baseservice.config.param.ConfigParam;
 import com.yipeng.baseservice.config.result.ConfigResult;
 import com.yipeng.baseservice.config.service.ConfigService;
@@ -19,7 +19,7 @@ import java.util.function.Function;
 @RestController
 @RequestMapping("/base-config")
 @Api(tags = { "配置管理接口" })
-public class ConfigController extends BaseController<ConfigParam,ConfigService>{
+public class ConfigController extends BaseController<ConfigParam, ConfigResult,ConfigService>{
 
     @PostConstruct
     public void init() {
@@ -46,10 +46,5 @@ public class ConfigController extends BaseController<ConfigParam,ConfigService>{
         addIntensifier(new Intensifier("save").before(argumentChecker));
         addIntensifier(new Intensifier("creatIfAbsent").before(argumentChecker));
         addIntensifier(new Intensifier(ALL).before(argumentToLowCase).priority(Integer.MAX_VALUE).useBeforeEnhanceResult(true));
-    }
-
-    @Override
-    protected Class defaultResultClass() {
-        return ConfigResult.class;
     }
 }
