@@ -1,7 +1,5 @@
 package com.yipeng.baseservice.config.param;
-
-import com.yipeng.baseservice.config.constant.ConfigNamespace;
-import com.yipeng.baseservice.config.constant.ConfigSource;
+import com.yipeng.framework.common.constants.Direction;
 import com.yipeng.framework.common.constants.annotation.FieldMapping;
 import com.yipeng.framework.common.model.BaseParam;
 import io.swagger.annotations.ApiModelProperty;
@@ -20,10 +18,10 @@ public class ConfigParam extends BaseParam {
     private String serviceId;
 
     @ApiModelProperty("命名空间")
-    private String namespace = ConfigNamespace.DEFAULT.name();
+    private String namespace;
 
     @ApiModelProperty("配置项存储源")
-    private String source = ConfigSource.MYSQL.name();
+    private String source;
 
     @ApiModelProperty(value = "配置项名称", required = true)
     private String name;
@@ -32,8 +30,8 @@ public class ConfigParam extends BaseParam {
     private String value;
 
     @ApiModelProperty("描述")
-    @FieldMapping("description")
-    private String description;
+    @FieldMapping(name = "description", direction = Direction.OUT)
+    private String desc;
 
     public ConfigParam() {
     }

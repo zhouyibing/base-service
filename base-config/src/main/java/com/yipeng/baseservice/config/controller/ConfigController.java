@@ -1,6 +1,8 @@
 package com.yipeng.baseservice.config.controller;
 
+import cn.hutool.core.lang.Func;
 import com.yipeng.baseservice.config.param.ConfigParam;
+import com.yipeng.baseservice.config.result.ConfigResult;
 import com.yipeng.baseservice.config.service.ConfigService;
 import com.yipeng.framework.common.web.controller.BaseController;
 import com.yipeng.framework.common.model.Intensifier;
@@ -9,6 +11,7 @@ import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.PostConstruct;
+import java.util.function.Function;
 
 /**
  * @author: yibingzhou
@@ -20,14 +23,15 @@ public class ConfigController extends BaseController<ConfigParam,ConfigService>{
 
     @PostConstruct
     public void init() {
-        addIntensifier(new Intensifier("save").before((param) -> {
-            Precondition.checkNotBlank(((ConfigParam)param).getValue(), "配置值不能为空");
-            Precondition.checkNotBlank(((ConfigParam)param).getName(), "配置name不能为空");
+        Function<ConfigParam,ConfigParam> argumentChecker = (param) -> {
+            Precondition.checkNotBlank(param.getValue(), "配置值不能为空");
+            Precondition.checkNotBlank(param.getNamespace(), "命名空间");
+            Precondition.checkNotBlank(param.getName(), "配置name不能为空");
             return param;
-        }));
-        addIntensifier(new Intensifier(ALL).before((param) -> {
+        };
+        Function<ConfigParam,ConfigParam> argumentToLowCase = (configParam) -> {
+            if(!(configParam instanceof ConfigParam)) return configParam;
             //转小写
-            ConfigParam configParam = (ConfigParam) param;
             if(StringUtils.isNotBlank(configParam.getServiceId())) {
                 configParam.setServiceId(configParam.getServiceId().toLowerCase());
             }
@@ -38,6 +42,14 @@ public class ConfigController extends BaseController<ConfigParam,ConfigService>{
                 configParam.setName(configParam.getName().toLowerCase());
             }
             return configParam;
-        }).priority(Integer.MAX_VALUE).useBeforeEnhanceResult(true));
+        };
+        addIntensifier(new Intensifier("save").before(argumentChecker));
+        addIntensifier(new Intensifier("creatIfAbsent").before(argumentChecker));
+        addIntensifier(new Intensifier(ALL).before(argumentToLowCase).priority(Integer.MAX_VALUE).useBeforeEnhanceResult(true));
+    }
+
+    @Override
+    protected Class defaultResultClass() {
+        return ConfigResult.class;
     }
 }

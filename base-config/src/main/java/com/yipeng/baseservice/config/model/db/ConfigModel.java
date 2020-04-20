@@ -1,7 +1,6 @@
 package com.yipeng.baseservice.config.model.db;
 
-import com.yipeng.baseservice.config.constant.ConfigNamespace;
-import com.yipeng.framework.common.constants.annotation.Convert;
+import com.yipeng.framework.common.constants.annotation.ConvertInclude;
 import com.yipeng.framework.common.model.BaseModel;
 import lombok.Data;
 
@@ -12,11 +11,11 @@ import javax.persistence.Table;
  */
 @Data
 @Table(name = "b_config")
-@Convert(ignores = {"logicDelete","updaterId","creatorId"})
-public class ConfigModel extends BaseModel {
+@ConvertInclude({"createTime","updateTime","creatorId","updaterId","logicDelete"})
+public class ConfigModel extends BaseModel<Long> {
     private static final long serialVersionUID = -5596274761738236536L;
     private String serviceId;
-    private String namespace = ConfigNamespace.DEFAULT.name();
+    private String namespace;
     private String name;
     private String value;
     private String description;

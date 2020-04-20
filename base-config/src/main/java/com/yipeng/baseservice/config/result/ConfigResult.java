@@ -1,11 +1,15 @@
 package com.yipeng.baseservice.config.result;
 
 import com.yipeng.baseservice.config.constant.ConfigNamespace;
+import com.yipeng.framework.common.constants.Direction;
+import com.yipeng.framework.common.constants.annotation.FieldMapping;
 import com.yipeng.framework.common.model.BaseResult;
+import com.yipeng.framework.common.service.converter.StringDateConverter;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 配置项结果
@@ -30,6 +34,17 @@ public class ConfigResult extends BaseResult implements Serializable{
 
     @ApiModelProperty("描述")
     private String description;
+
+    @FieldMapping(name = "createTime",direction = Direction.IN, converter = StringDateConverter.class)
+    private String createTime;
+    @FieldMapping(name = "updateTime",direction = Direction.IN, converter = StringDateConverter.class)
+    private String updateTime;
+
+    private String creatorId;
+
+    private String updaterId;
+
+    private Boolean deleted;
 
     public ConfigResult() {
     }
