@@ -7,7 +7,6 @@ import com.yipeng.framework.common.model.AccessObject;
 import com.yipeng.framework.common.service.BaseService;
 import org.springframework.stereotype.Service;
 
-
 /**
  * @author: yibingzhou
  */

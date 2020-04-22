@@ -19,29 +19,30 @@ import java.util.function.Function;
 @RestController
 @RequestMapping("/base-config")
 @Api(tags = { "配置管理接口" })
-public class ConfigController extends BaseController<ConfigParam, ConfigResult,ConfigService>{
+public class ConfigController extends BaseController<ConfigResult,ConfigService>{
 
     @PostConstruct
     public void init() {
-        Function<ConfigParam,ConfigParam> argumentChecker = (param) -> {
-            Precondition.checkNotBlank(param.getValue(), "配置值不能为空");
-            Precondition.checkNotBlank(param.getNamespace(), "命名空间");
-            Precondition.checkNotBlank(param.getName(), "配置name不能为空");
+        Function<?,?> argumentChecker = (param) -> {
+            if(!(param instanceof ConfigParam)) return param;
+            Precondition.checkNotBlank(((ConfigParam)param).getValue(), "配置值不能为空");
+            Precondition.checkNotBlank(((ConfigParam)param).getNamespace(), "命名空间");
+            Precondition.checkNotBlank(((ConfigParam)param).getName(), "配置name不能为空");
             return param;
         };
-        Function<ConfigParam,ConfigParam> argumentToLowCase = (configParam) -> {
-            if(!(configParam instanceof ConfigParam)) return configParam;
+        Function<?,?> argumentToLowCase = (param) -> {
+            if(!(param instanceof ConfigParam)) return param;
             //转小写
-            if(StringUtils.isNotBlank(configParam.getServiceId())) {
-                configParam.setServiceId(configParam.getServiceId().toLowerCase());
+            if(StringUtils.isNotBlank(((ConfigParam)param).getServiceId())) {
+                ((ConfigParam)param).setServiceId(((ConfigParam)param).getServiceId().toLowerCase());
             }
-            if(StringUtils.isNotBlank(configParam.getNamespace())) {
-                configParam.setNamespace(configParam.getNamespace().toLowerCase());
+            if(StringUtils.isNotBlank(((ConfigParam)param).getNamespace())) {
+                ((ConfigParam)param).setNamespace(((ConfigParam)param).getNamespace().toLowerCase());
             }
-            if(StringUtils.isNotBlank(configParam.getName())) {
-                configParam.setName(configParam.getName().toLowerCase());
+            if(StringUtils.isNotBlank(((ConfigParam)param).getName())) {
+                ((ConfigParam)param).setName(((ConfigParam)param).getName().toLowerCase());
             }
-            return configParam;
+            return param;
         };
         addIntensifier(new Intensifier("save").before(argumentChecker));
         addIntensifier(new Intensifier("creatIfAbsent").before(argumentChecker));

@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 @Api(tags = { "测试接口" })
-public class TestController extends BaseController<ConfigParam, ConfigModel,ConfigService>{
+public class TestController extends BaseController<ConfigModel,ConfigService>{
 }
