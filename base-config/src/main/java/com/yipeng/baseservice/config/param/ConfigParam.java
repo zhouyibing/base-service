@@ -23,15 +23,14 @@ public class ConfigParam extends BaseParam {
     @ApiModelProperty("配置项存储源")
     private String source;
 
-    @ApiModelProperty(value = "配置项名称", required = true)
+    @ApiModelProperty(value = "配置项名称")
     private String name;
 
-    @ApiModelProperty(value = "配置项值", required = true)
+    @ApiModelProperty(value = "配置项值")
     private String value;
 
     @ApiModelProperty("描述")
-    @FieldMapping(name = "description", direction = Direction.OUT)
-    private String desc;
+    private String description;
 
     public ConfigParam() {
     }

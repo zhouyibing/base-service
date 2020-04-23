@@ -1,6 +1,6 @@
 package com.yipeng.baseservice.config.controller;
 
-import com.yipeng.baseservice.config.model.db.ConfigModel;
+import com.yipeng.baseservice.config.api.ConfigFacade;
 import com.yipeng.baseservice.config.param.ConfigParam;
 import com.yipeng.baseservice.config.result.ConfigResult;
 import com.yipeng.baseservice.config.service.ConfigService;
@@ -19,7 +19,7 @@ import java.util.function.Function;
 @RestController
 @RequestMapping("/base-config")
 @Api(tags = { "配置管理接口" })
-public class ConfigController extends BaseController<ConfigResult,ConfigService>{
+public class ConfigController extends BaseController<ConfigResult,ConfigService> implements ConfigFacade {
 
     @PostConstruct
     public void init() {
