@@ -8,10 +8,16 @@ import lombok.Getter;
  * @author: yibingzhou
  */
 public enum ConfigSource implements CodeDesEnum<Integer, ConfigSource> {
-    MYSQL(1, "mysql"),REDIS(2, "redis"),CONSUL(3, "consul");
+    //mysql存储源
+    MYSQL(1, "mysql"),
+    //redis存储源
+    REDIS(2, "redis"),
+    //consul存储源
+    CONSUL(3, "consul");
 
     @Getter
     private Integer code;
+
     @Getter
     private String description;
 

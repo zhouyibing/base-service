@@ -15,16 +15,21 @@ public interface SmsFacade {
 
     /**
      * 短信发送
-     * */
+     * @param param 短信信息
+     * @return
+     */
     Result<SmsSendResult> send(SmsSendParam param);
 
     /**
      * 短信发送模板设置
+     * @param smsTemplate 短信发送模板
+     * @return
      * */
     Result<Void> sendTemplate(SmsTemplate smsTemplate);
 
     /**
      * 短信发送记录
-     * */
+     * @return
+     */
     PageInfo<SmsRecord> sendList();
 }

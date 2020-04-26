@@ -5,7 +5,7 @@ import com.yipeng.baseservice.baseuser.param.LoginParam;
 /**
  * @author: yibingzhou
  */
-public class MobileVerCodeLoginService implements LoginService{
+public class QrcodeLoginServiceImpl implements LoginService{
     @Override
     public void login(LoginParam loginParam) {
 

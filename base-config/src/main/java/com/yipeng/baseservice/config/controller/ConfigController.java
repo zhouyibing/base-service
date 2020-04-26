@@ -24,14 +24,18 @@ public class ConfigController extends BaseController<ConfigResult,ConfigService>
     @PostConstruct
     public void init() {
         Function<?,?> argumentChecker = (param) -> {
-            if(!(param instanceof ConfigParam)) return param;
+            if(!(param instanceof ConfigParam)) {
+                return param;
+            }
             Precondition.checkNotBlank(((ConfigParam)param).getValue(), "配置值不能为空");
             Precondition.checkNotBlank(((ConfigParam)param).getNamespace(), "命名空间");
             Precondition.checkNotBlank(((ConfigParam)param).getName(), "配置name不能为空");
             return param;
         };
         Function<?,?> argumentToLowCase = (param) -> {
-            if(!(param instanceof ConfigParam)) return param;
+            if(!(param instanceof ConfigParam)) {
+                return param;
+            }
             //转小写
             if(StringUtils.isNotBlank(((ConfigParam)param).getServiceId())) {
                 ((ConfigParam)param).setServiceId(((ConfigParam)param).getServiceId().toLowerCase());

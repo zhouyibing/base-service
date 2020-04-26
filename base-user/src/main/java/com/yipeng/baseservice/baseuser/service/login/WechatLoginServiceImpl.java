@@ -5,7 +5,7 @@ import com.yipeng.baseservice.baseuser.param.LoginParam;
 /**
  * @author: yibingzhou
  */
-public class UserNoPassLoginService implements LoginService{
+public class WechatLoginServiceImpl implements LoginService{
     @Override
     public void login(LoginParam loginParam) {
 

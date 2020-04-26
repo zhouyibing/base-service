@@ -18,6 +18,10 @@ public interface WechatFacade {
      */
     void syncWechatInfo(String openId, Long userId);
 
+    /**
+     * 获取用户微信信息
+     * @param userId 用户id
+     */
     void getWechatInfo(Long userId);
 
 

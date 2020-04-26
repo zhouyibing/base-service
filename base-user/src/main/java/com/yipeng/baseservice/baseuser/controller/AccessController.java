@@ -16,21 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AccessController implements AccessFacade {
 
+    @Override
     @PostMapping("/api/base-user/access/login")
     public Result<LoginResult> login(LoginParam loginParam) {
         return null;
     }
 
+    @Override
     @PostMapping("/api/base-user/access/logOut")
     public Result<LoginResult> logOut(LoginParam loginParam) {
         return null;
     }
 
+    @Override
     @PostMapping("/api/base-user/access/recoveredPwd")
     public Result<LoginResult> recoveredPwd(LoginParam loginParam) {
         return null;
     }
 
+    @Override
     @PostMapping("/api/base-user/access/registry")
     public Result<RegistryResult> registry(RegistryParam registryParam) {
         return null;

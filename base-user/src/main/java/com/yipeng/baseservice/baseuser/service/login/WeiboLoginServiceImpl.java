@@ -5,7 +5,7 @@ import com.yipeng.baseservice.baseuser.param.LoginParam;
 /**
  * @author: yibingzhou
  */
-public class WeiboLoginService implements LoginService{
+public class WeiboLoginServiceImpl implements LoginService{
     @Override
     public void login(LoginParam loginParam) {
 

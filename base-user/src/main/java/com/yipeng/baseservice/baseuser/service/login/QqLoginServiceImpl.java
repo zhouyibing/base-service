@@ -5,7 +5,7 @@ import com.yipeng.baseservice.baseuser.param.LoginParam;
 /**
  * @author: yibingzhou
  */
-public class EmailPassLoginService implements LoginService{
+public class QqLoginServiceImpl implements LoginService{
     @Override
     public void login(LoginParam loginParam) {
 
