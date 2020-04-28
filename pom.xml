@@ -3,7 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>com.yipeng.baseservice</groupId>
     <artifactId>base-service</artifactId>
     <packaging>pom</packaging>
@@ -27,6 +26,7 @@
         <maven-plugin-version>2.5</maven-plugin-version>
         <spring-boot-version>2.0.3.RELEASE</spring-boot-version>
     </properties>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -120,6 +120,11 @@
                     <!-- 更新元数据 -->
                     <updateReleaseInfo>true</updateReleaseInfo>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
