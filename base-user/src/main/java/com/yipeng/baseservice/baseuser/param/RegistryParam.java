@@ -1,7 +1,7 @@
 package com.yipeng.baseservice.baseuser.param;
 
 import lombok.Data;
-import net.sf.oval.constraint.NotBlank;
+import org.hibernate.validator.constraints.NotBlank;
 
 /**
  * 注册参数
