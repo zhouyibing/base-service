@@ -1,6 +1,6 @@
 package com.yipeng.baseservice.config.param;
 
-import com.yipeng.framework.common.model.AccessObject;
+import com.yipeng.framework.common.model.db.AccessObject;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;

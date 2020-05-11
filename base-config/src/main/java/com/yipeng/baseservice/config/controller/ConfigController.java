@@ -5,7 +5,7 @@ import com.yipeng.baseservice.config.param.ConfigParam;
 import com.yipeng.baseservice.config.result.ConfigResult;
 import com.yipeng.baseservice.config.service.ConfigService;
 import com.yipeng.framework.common.web.controller.BaseController;
-import com.yipeng.framework.common.model.Intensifier;
+import com.yipeng.framework.common.model.biz.Intensifier;
 import com.yipeng.framework.common.utils.Precondition;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;

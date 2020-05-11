@@ -3,7 +3,7 @@ import com.yipeng.baseservice.config.dao.ConfigDao;
 import com.yipeng.baseservice.config.model.db.ConfigModel;
 import com.yipeng.baseservice.config.param.ConfigParam;
 import com.yipeng.framework.common.exception.ExceptionUtil;
-import com.yipeng.framework.common.model.AccessObject;
+import com.yipeng.framework.common.model.db.AccessObject;
 import com.yipeng.framework.common.service.BaseService;
 import org.springframework.stereotype.Service;
 

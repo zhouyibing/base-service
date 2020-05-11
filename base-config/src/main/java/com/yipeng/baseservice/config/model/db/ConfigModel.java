@@ -1,6 +1,6 @@
 package com.yipeng.baseservice.config.model.db;
 
-import com.yipeng.framework.common.model.BaseModel;
+import com.yipeng.framework.common.model.db.BaseModel;
 import lombok.Data;
 
 import javax.persistence.Table;

@@ -1,7 +1,5 @@
 package com.yipeng.baseservice.config.param;
-import com.yipeng.framework.common.constants.Direction;
-import com.yipeng.framework.common.constants.annotation.FieldMapping;
-import com.yipeng.framework.common.model.BaseParam;
+import com.yipeng.framework.common.model.biz.BaseParam;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
