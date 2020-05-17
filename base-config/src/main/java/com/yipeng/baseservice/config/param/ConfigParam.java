@@ -1,5 +1,6 @@
 package com.yipeng.baseservice.config.param;
-import com.yipeng.framework.common.model.biz.BaseParam;
+import com.yipeng.framework.core.model.biz.BaseParam;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
@@ -10,10 +11,11 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author: yibingzhou
  */
 @Data
+@ApiModel("配置项参数")
 public class ConfigParam extends BaseParam {
     @ApiModelProperty(value = "服务id", required = true)
-    @NotBlank(message = "服务id不能为空")
-    private String serviceId;
+    @NotBlank(message = "应用id不能为空")
+    private String appId;
 
     @ApiModelProperty("命名空间")
     private String namespace;
@@ -33,14 +35,14 @@ public class ConfigParam extends BaseParam {
     public ConfigParam() {
     }
 
-    public ConfigParam(String serviceId, String namespace, String name) {
-        this.serviceId = serviceId;
+    public ConfigParam(String appId, String namespace, String name) {
+        this.appId = appId;
         this.namespace = namespace;
         this.name = name;
     }
 
-    public ConfigParam(String serviceId, String namespace, String name, String value) {
-        this.serviceId = serviceId;
+    public ConfigParam(String appId, String namespace, String name, String value) {
+        this.appId = appId;
         this.namespace = namespace;
         this.name = name;
         this.value = value;

@@ -1,6 +1,7 @@
 package com.yipeng.baseservice.config.param;
 
-import com.yipeng.framework.common.model.db.AccessObject;
+import com.yipeng.framework.core.model.db.AccessObject;
+import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
@@ -9,11 +10,12 @@ import org.hibernate.validator.constraints.NotBlank;
  * @author: yibingzhou
  */
 @Data
+@ApiModel("配置查询参数")
 public class ConfigQueryParam extends AccessObject {
 
-    @NotBlank(message = "服务id不能为空")
-    @ApiModelProperty(value = "服务id", required = true)
-    private String serviceId;
+    @NotBlank(message = "应用id不能为空")
+    @ApiModelProperty(value = "应用id", required = true)
+    private String appId;
 
     @ApiModelProperty("命名空间")
     private String namespace;

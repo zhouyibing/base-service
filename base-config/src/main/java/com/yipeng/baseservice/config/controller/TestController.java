@@ -4,7 +4,7 @@ import com.yipeng.baseservice.config.model.db.ConfigModel;
 import com.yipeng.baseservice.config.param.ConfigParam;
 import com.yipeng.baseservice.config.result.ConfigResult;
 import com.yipeng.baseservice.config.service.ConfigService;
-import com.yipeng.framework.common.web.controller.BaseController;
+import com.yipeng.framework.core.web.controller.BaseController;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,5 +15,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/test")
 @Api(tags = { "测试接口" })
-public class TestController extends BaseController<ConfigModel,ConfigService>{
+public class TestController extends BaseController<ConfigParam,ConfigModel,ConfigService>{
 }

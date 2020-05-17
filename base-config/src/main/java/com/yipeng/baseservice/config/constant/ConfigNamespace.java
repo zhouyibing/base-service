@@ -1,6 +1,6 @@
 package com.yipeng.baseservice.config.constant;
 
-import com.yipeng.framework.common.constants.CodeDesEnum;
+import com.yipeng.framework.core.constants.CodeDesEnum;
 import lombok.Getter;
 
 /**

@@ -4,9 +4,9 @@ import com.yipeng.baseservice.config.api.ConfigFacade;
 import com.yipeng.baseservice.config.param.ConfigParam;
 import com.yipeng.baseservice.config.result.ConfigResult;
 import com.yipeng.baseservice.config.service.ConfigService;
-import com.yipeng.framework.common.web.controller.BaseController;
-import com.yipeng.framework.common.model.biz.Intensifier;
-import com.yipeng.framework.common.utils.Precondition;
+import com.yipeng.framework.core.web.controller.BaseController;
+import com.yipeng.framework.core.model.biz.Intensifier;
+import com.yipeng.framework.core.utils.Precondition;
 import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ import java.util.function.Function;
 @RestController
 @RequestMapping("/base-config")
 @Api(tags = { "配置管理接口" })
-public class ConfigController extends BaseController<ConfigResult,ConfigService> implements ConfigFacade {
+public class ConfigController extends BaseController<ConfigParam,ConfigResult,ConfigService> implements ConfigFacade {
 
     @PostConstruct
     public void init() {
@@ -37,8 +37,8 @@ public class ConfigController extends BaseController<ConfigResult,ConfigService>
                 return param;
             }
             //转小写
-            if(StringUtils.isNotBlank(((ConfigParam)param).getServiceId())) {
-                ((ConfigParam)param).setServiceId(((ConfigParam)param).getServiceId().toLowerCase());
+            if(StringUtils.isNotBlank(((ConfigParam)param).getAppId())) {
+                ((ConfigParam)param).setAppId(((ConfigParam)param).getAppId().toLowerCase());
             }
             if(StringUtils.isNotBlank(((ConfigParam)param).getNamespace())) {
                 ((ConfigParam)param).setNamespace(((ConfigParam)param).getNamespace().toLowerCase());

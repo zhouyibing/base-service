@@ -1,6 +1,6 @@
 package com.yipeng.baseservice.config.model.db;
 
-import com.yipeng.framework.common.model.db.BaseModel;
+import com.yipeng.framework.core.model.db.BaseModel;
 import lombok.Data;
 
 import javax.persistence.Table;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name = "b_config")
 public class ConfigModel extends BaseModel<Long> {
     private static final long serialVersionUID = -5596274761738236536L;
-    private String serviceId;
+    private String appId;
     private String namespace;
     private String name;
     private String value;

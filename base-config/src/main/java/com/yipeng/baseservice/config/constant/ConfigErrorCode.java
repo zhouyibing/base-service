@@ -1,6 +1,6 @@
 package com.yipeng.baseservice.config.constant;
 
-import com.yipeng.framework.common.exception.ErrorCode;
+import com.yipeng.framework.core.exception.ErrorCode;
 
 /**
  * @author: yibingzhou
