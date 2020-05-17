@@ -11,7 +11,6 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
-
 import java.util.ArrayList;
 import java.util.List;
 

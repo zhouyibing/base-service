@@ -13,14 +13,14 @@ dev-framework:
   ###应用基本信息###
   appInfo:
     appId: '001001'
-    infoUrl: 'http://localhost:7777/api/appInfo/getAppInfo'
-    pingUrl: 'http://localhost:7777/api/appInstance/ping'
-    disconnectUrl: 'http://localhost:7777/api/appInstance/disconnect'
+    infoUrl: 'http://localhost:7777/base-app/api/appInfo/getAppInfo'
+    pingUrl: 'http://localhost:7777/base-app/api/appInstance/ping'
+    disconnectUrl: 'http://localhost:7777/base-app/api/appInstance/disconnect'
   ###api接口配置信息 ignorePaths:需要过滤的接口路径，支持ant matcher
   ###classPathUrlPrefix:指定类路径(可包名)下的url前缀（可多个,多个时只会选择你第一个匹配到的路径，所以把最准确的路径写到前面） 类路径支持ant matcher规则###
   api:
     ignorePaths: ''
-    classPathUrlPrefix: 'com.yipeng.baseservice.config.controller.**@/api'
+    classPathUrlPrefix: 'com.yipeng.baseservice.config.controller.**@/base-config/api'
 
 
 ###日志配置###

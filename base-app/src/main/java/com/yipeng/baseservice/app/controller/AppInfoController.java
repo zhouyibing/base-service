@@ -29,7 +29,7 @@ public class AppInfoController extends BaseController<AppInfoParam,AppInfoResult
         return Result.success(service.getAppInfo(appId));
     }
 
-    @PostMapping("registry")
+    @PostMapping("/registry")
     @ApiOperation("应用注册")
     public Result<Boolean> registry(@ApiParam(name = "appInfo", value = "应用注册信息", required = true) @RequestBody AppInfoParam appInfoModel) {
         Precondition.checkNotBlank(appInfoModel.getSystemId(), "系统id不能为空");

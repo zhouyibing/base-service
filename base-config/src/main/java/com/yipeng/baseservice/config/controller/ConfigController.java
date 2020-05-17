@@ -17,7 +17,7 @@ import java.util.function.Function;
  * @author: yibingzhou
  */
 @RestController
-@RequestMapping("/base-config")
+@RequestMapping("/config")
 @Api(tags = { "配置管理接口" })
 public class ConfigController extends BaseController<ConfigParam,ConfigResult,ConfigService> implements ConfigFacade {
 
