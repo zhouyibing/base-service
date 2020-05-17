@@ -8,6 +8,8 @@ server:
 
 ###开发框架里的一些配置###
 dev-framework:
+  ###是否允许跨域访问###
+  allowedCrossDomain: true
   ###应用基本信息###
   appInfo:
     appId: '001001'
@@ -82,8 +84,8 @@ pagehelper:
 ###swagger配置###
 swagger:
   basePackage: com.yipeng.baseservice
-  title: 基础服务api
-  description: 基础服务api
+  title: 配置服务api
+  description: 配置服务api
   version: 1.1
   contact:
     name: yibingzhou

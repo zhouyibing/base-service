@@ -8,10 +8,11 @@ server:
 
 ###开发框架里的一些配置###
 dev-framework:
+  ###是否允许跨域访问###
+  allowedCrossDomain: true
   ###应用基本信息###
   appInfo:
     appId: '001002'
-    notConnenctToAppInfoServer: true
     infoUrl: 'http://localhost:7777/api/appInfo/getAppInfo'
     pingUrl: 'http://localhost:7777/api/appInstance/ping'
     disconnectUrl: 'http://localhost:7777/api/appInstance/disconnect'

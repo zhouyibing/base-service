@@ -64,4 +64,10 @@ public class AppInfoParam extends ManagedParam {
 
 	@ApiModelProperty("状态")
 	private Integer status;
+
+	@ApiModelProperty("应用描述")
+	private String description;
+
+	@ApiModelProperty("接口文档地址")
+	private String docUrl;
 }

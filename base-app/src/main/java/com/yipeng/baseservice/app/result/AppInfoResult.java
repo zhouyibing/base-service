@@ -6,6 +6,8 @@ import io.swagger.annotations.ApiModelProperty;
 import com.yipeng.framework.core.service.converter.*;
 import lombok.Data;
 
+import javax.persistence.Column;
+
 /**
 * 应用信息 返回结果
 * @author yibingzhou
@@ -31,6 +33,9 @@ public class AppInfoResult {
 
 	@ApiModelProperty("描述")
 	private String description;
+
+	@ApiModelProperty("接口文档地址")
+	private String docUrl;
 
 	@ApiModelProperty("更新时间")
 	@FieldMapping(name = "updateTime",direction = Direction.IN, converter = StringDateConverter.class)

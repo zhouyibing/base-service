@@ -32,6 +32,10 @@ public class AppInfoModel extends BaseModel<Long> implements Serializable {
 	@Column(name = "description")
 	private String description;
 
+	/** 接口文档地址 */
+	@Column(name = "doc_url")
+	private String docUrl;
+
 	/** 服务id */
 	@Column(name = "service_id")
 	private String serviceId;

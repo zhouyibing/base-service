@@ -10,6 +10,7 @@ import com.yipeng.framework.core.model.db.AccessObject;
 import org.springframework.stereotype.Service;
 import com.yipeng.framework.core.service.BaseService;
 import org.springframework.util.CollectionUtils;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -38,5 +39,11 @@ public class AppInfoService extends BaseService<AppInfoModel, AppInfoDao> {
         ((AppInfoParam)create).setStatus(AppStatus.NORMAL.getCode());
         ((AppInfoParam)create).setId(null);
         return super.createIfAbsent(queryParam, create);
+    }
+
+    public List<AppInfoResult> getAll() {
+        Example example = new Example(AppInfoModel.class);
+        example.createCriteria().andGreaterThanOrEqualTo("status", 0);
+        return queryByExample(example, AppInfoResult.class);
     }
 }
