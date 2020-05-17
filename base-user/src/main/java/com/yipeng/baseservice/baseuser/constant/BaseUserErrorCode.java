@@ -1,7 +1,7 @@
 package com.yipeng.baseservice.baseuser.constant;
 
 
-import com.yipeng.framework.common.exception.ErrorCode;
+import com.yipeng.framework.core.exception.ErrorCode;
 
 /**
  * base-user错误代码

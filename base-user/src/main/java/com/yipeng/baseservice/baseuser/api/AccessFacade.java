@@ -4,7 +4,7 @@ import com.yipeng.baseservice.baseuser.param.LoginParam;
 import com.yipeng.baseservice.baseuser.param.RegistryParam;
 import com.yipeng.baseservice.baseuser.result.LoginResult;
 import com.yipeng.baseservice.baseuser.result.RegistryResult;
-import com.yipeng.framework.common.result.Result;
+import com.yipeng.framework.core.result.Result;
 
 /**
  * 系统访问相关接口

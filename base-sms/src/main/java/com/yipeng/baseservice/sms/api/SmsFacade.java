@@ -5,7 +5,7 @@ import com.yipeng.baseservice.sms.param.SmsSendParam;
 import com.yipeng.baseservice.sms.param.SmsTemplate;
 import com.yipeng.baseservice.sms.result.SmsRecord;
 import com.yipeng.baseservice.sms.result.SmsSendResult;
-import com.yipeng.framework.common.result.Result;
+import com.yipeng.framework.core.result.Result;
 
 /**
  * 短信发送接口
