@@ -6,8 +6,6 @@ import io.swagger.annotations.ApiModelProperty;
 import com.yipeng.framework.core.service.converter.*;
 import lombok.Data;
 
-import javax.persistence.Column;
-
 /**
 * 应用信息 返回结果
 * @author yibingzhou
@@ -82,5 +80,4 @@ public class AppInfoResult {
 
 	@ApiModelProperty("候选人email")
 	private String candidateEmail;
-
 }
