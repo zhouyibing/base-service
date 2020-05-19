@@ -19,6 +19,9 @@ dev-framework:
   ###api接口配置信息 ignorePaths:需要过滤的接口路径，支持ant matcher
   ###classPathUrlPrefix:指定类路径(可包名)下的url前缀（可多个,多个时只会选择你第一个匹配到的路径，所以把最准确的路径写到前面） 类路径支持ant matcher规则###
   api:
+    debug: true
+    httpValue:
+      pathPatterns: '/base-app/api/**'
     timeout: 100
     ignorePaths: ''
     classPathUrlPrefix: 'com.yipeng.baseservice.authority.controller.**@/base-authority/api'
@@ -87,6 +90,11 @@ swagger:
   title: base-authority服务api
   description: base-authority服务api
   version: 1.1
+  modelPropertyFilterConfig: '/**/createIfAbsent@0,id;
+                              /**/create@0,id;
+                              /**/delete@0,selective,id;
+                              /**/get@0,selective,id;
+                              /**/logicDelete@0,selective,id'
   contact:
     name: yibingzhou
     email: zhouyibing_1990@163.com

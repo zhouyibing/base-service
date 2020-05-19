@@ -87,6 +87,11 @@ swagger:
   title: 配置服务api
   description: 配置服务api
   version: 1.1
+  modelPropertyFilterConfig: '/**/createIfAbsent@0,id;
+                              /**/create@0,id;
+                              /**/delete@0,selective,id;
+                              /**/get@0,selective,id;
+                              /**/logicDelete@0,selective,id'
   contact:
     name: yibingzhou
     email: zhouyibing_1990@163.com
