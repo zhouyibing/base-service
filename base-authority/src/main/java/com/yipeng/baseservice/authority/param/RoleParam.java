@@ -14,7 +14,7 @@ import lombok.Data;
 **/
 @Data
 @ApiModel("角色查询参数")
-public class RoleParam extends ManagedParam {
+public class RoleParam extends ManagedParam<Long> {
 
 
 	@ApiModelProperty("角色名称")
@@ -33,7 +33,7 @@ public class RoleParam extends ManagedParam {
 	@Number(minLen = 6, maxLen = 6, message = "应用id长度为6位数字")
 	private String appId;
 
-	@ApiModelProperty("状态(0:禁用，1:启用)")
+	@ApiModelProperty(value = "状态(0:禁用，1:启用)", allowableValues = "0,1")
 	@EnumValue(value = {"0", "1"}, message = "状态仅限0/1")
 	private Integer status;
 }

@@ -18,7 +18,7 @@ import java.util.List;
  */
 @Data
 @ApiModel("角色-权限参数")
-public class RoleRightsParam extends ManagedParam {
+public class RoleRightsParam extends ManagedParam<Long> {
 
     @ApiModelProperty("应用id")
     @NotBlank(message = "应用id不能为空")
@@ -44,7 +44,7 @@ public class RoleRightsParam extends ManagedParam {
         @Range(min = -1, message = "有效期值非法")
         private Long ttl;
 
-        @ApiModelProperty("状态(0禁用，1启用，2临时启用)")
+        @ApiModelProperty(value = "状态(0禁用，1启用，2临时启用)", allowableValues = "0,1,2")
         @EnumValue(value = {"0", "1", "2"}, message = "状态仅限0/1/2")
         private Integer status;
     }

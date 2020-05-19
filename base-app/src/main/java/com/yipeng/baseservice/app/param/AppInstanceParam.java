@@ -20,7 +20,7 @@ import java.util.Date;
 **/
 @ApiModel("应用实例查询参数")
 @Data
-public class AppInstanceParam extends BaseParam {
+public class AppInstanceParam extends BaseParam<Long> {
 
 	@ApiModelProperty("ip")
 	@Length(max = 15, message = "ip地址长度不能超过15位")

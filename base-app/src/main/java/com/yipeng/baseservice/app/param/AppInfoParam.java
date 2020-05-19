@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Email;
 **/
 @ApiModel("应用信息查询参数")
 @Data
-public class AppInfoParam extends ManagedParam {
+public class AppInfoParam extends ManagedParam<Long> {
 
 	@ApiModelProperty("系统id")
 	@Number(minLen = 3, maxLen = 3, message = "系统id长度为3位数字")

@@ -14,7 +14,7 @@ import org.hibernate.validator.constraints.Range;
  */
 @Data
 @ApiModel("用户特殊权限")
-public class UserRightsParam extends ManagedParam {
+public class UserRightsParam extends ManagedParam<Long> {
 
     @ApiModelProperty("用户id")
     @NotBlank(message = "用户id不能为空")
@@ -28,7 +28,7 @@ public class UserRightsParam extends ManagedParam {
     @Range(min = -1, message = "有效期值非法")
     private Long ttl;
 
-    @ApiModelProperty("状态(0禁用，1启用，2临时启用)")
+    @ApiModelProperty(value = "状态(0禁用，1启用，2临时启用)", allowableValues = "0,1,2")
     @EnumValue(value = {"0", "1", "2"}, message = "状态仅限0/1/2")
     private Integer status;
 }

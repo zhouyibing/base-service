@@ -1,4 +1,5 @@
 package com.yipeng.baseservice.authority.service;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.yipeng.baseservice.authority.constant.AuthConstants;
@@ -16,6 +17,7 @@ import com.yipeng.baseservice.authority.param.UserRoleParam;
 import com.yipeng.framework.core.constants.Constants;
 import com.yipeng.framework.core.exception.ErrorCode;
 import com.yipeng.framework.core.exception.ExceptionUtil;
+import io.swagger.annotations.ApiModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yipeng.framework.core.service.BaseService;
@@ -34,10 +36,13 @@ import java.util.stream.Collectors;
 @Service
 public class RoleService extends BaseService<RoleModel, RoleDao> {
     @Autowired
+    @JsonIgnore
     private RoleRightsDao roleRightsDao;
     @Autowired
+    @JsonIgnore
     private UserRoleDao userRoleDao;
     @Autowired
+    @JsonIgnore
     private RightsService rightsService;
 
     public void empowerment(RoleRightsParam roleRightsParam) {

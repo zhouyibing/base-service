@@ -1,6 +1,8 @@
 package com.yipeng.baseservice.app.result;
 import com.yipeng.framework.core.constants.Direction;
 import com.yipeng.framework.core.constants.annotation.FieldMapping;
+import com.yipeng.framework.core.json.SensitiveInfo;
+import com.yipeng.framework.core.json.SensitiveType;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import com.yipeng.framework.core.service.converter.*;

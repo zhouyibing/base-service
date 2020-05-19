@@ -12,7 +12,7 @@ import org.hibernate.validator.constraints.NotBlank;
  */
 @Data
 @ApiModel("配置项参数")
-public class ConfigParam extends BaseParam {
+public class ConfigParam extends BaseParam<Long> {
     @ApiModelProperty(value = "服务id", required = true)
     @NotBlank(message = "应用id不能为空")
     private String appId;

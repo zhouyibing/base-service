@@ -5,7 +5,11 @@ import com.yipeng.baseservice.app.constant.AppStatus;
 import com.yipeng.baseservice.app.dao.AppInstanceDao;
 import com.yipeng.baseservice.app.model.db.AppInstanceModel;
 import com.yipeng.framework.core.constants.Constants;
+import com.yipeng.framework.core.model.biz.ContextHolder;
 import lombok.extern.slf4j.Slf4j;
+import org.slf4j.MDC;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.yipeng.framework.core.service.BaseService;
@@ -46,16 +50,16 @@ public class AppInstanceService extends BaseService<AppInstanceModel, AppInstanc
         AppInstanceModel param = new AppInstanceModel();
         param.setStatus(AppStatus.RUNNING.getCode());
         List<AppInstanceModel> appInstanceList = this.queryAllMatch(param, AppInstanceModel.class);
-        if(!CollectionUtils.isEmpty(appInstanceList)) {
+        if (!CollectionUtils.isEmpty(appInstanceList)) {
             List<Long> stopInstances = new ArrayList<>();
             appInstanceList.forEach(appInstance -> {
-                if(System.currentTimeMillis() - appInstance.getUpdateTime().getTime() > AppInfoConstants.HEARTBEAT_TIMEWAIT) {
+                if (System.currentTimeMillis() - appInstance.getUpdateTime().getTime() > AppInfoConstants.HEARTBEAT_TIMEWAIT) {
                     //一分钟了还没有心跳，则标记状态为‘停止’
                     stopInstances.add(appInstance.getId());
                     log.warn("server:[{}],not survive", appInstance);
                 }
             });
-            if( !CollectionUtils.isEmpty(stopInstances)) {
+            if (!CollectionUtils.isEmpty(stopInstances)) {
                 param.setStatus(AppStatus.STOP.getCode());
                 Example example = new Example(AppInstanceModel.class);
                 example.createCriteria().andIn(param.primaryKeyName(), stopInstances);

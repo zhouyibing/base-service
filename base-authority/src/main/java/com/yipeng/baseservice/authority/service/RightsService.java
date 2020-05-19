@@ -12,6 +12,7 @@ import io.swagger.annotations.SwaggerDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yipeng.framework.core.service.BaseService;
+import springfox.documentation.annotations.ApiIgnore;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
@@ -25,6 +26,7 @@ import java.util.List;
 public class RightsService extends BaseService<RightsModel, RightsDao> {
 
     @Autowired
+    @JsonIgnore
     private UserRightsDao userRightsDao;
 
     public void disfranchise(String appId, String updaterId, List<Long> rightsIdList) {

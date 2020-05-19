@@ -17,7 +17,7 @@ public interface AuthorityErrorCode {
    *public final static ErrorCode CAN_NOT_NULL = new ErrorCode("0006", "参数不能为空");
    **/
 
-   ErrorCode ROLE_NOT_BELONG = new ErrorCode("0013", "角色:{0}不属于应用:{1}");
-   ErrorCode NOT_FOUND_RIGHTS = new ErrorCode("0015", "未找到权限:{0}");
-   ErrorCode RIGHTS_NOT_BELONG = new ErrorCode("0017", "权限:{0}不属于应用:{1}");
+   ErrorCode ROLE_NOT_BELONG = new ErrorCode("3001", "角色:{0}不属于应用:{1}");
+   ErrorCode NOT_FOUND_RIGHTS = new ErrorCode("3003", "未找到权限:{0}");
+   ErrorCode RIGHTS_NOT_BELONG = new ErrorCode("3005", "权限:{0}不属于应用:{1}");
 }
