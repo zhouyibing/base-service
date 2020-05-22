@@ -26,6 +26,7 @@
         <module>base-mail</module>
         <module>base-test</module>
         <module>base-app</module>
+        <module>base-tools</module>
     </modules>
     <properties>
         <develop-framework-version>1.0-SNAPSHOT</develop-framework-version>

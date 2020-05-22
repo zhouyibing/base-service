@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>base-oss</artifactId>
-
+    <description>对象存储服务</description>
 
 </project>

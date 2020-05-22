@@ -10,4 +10,5 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>base-app</artifactId>
+	<description>应用管理服务</description>
 </project>

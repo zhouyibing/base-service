@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>base-sns</artifactId>
-
+    <description>社交服务</description>
 
 </project>

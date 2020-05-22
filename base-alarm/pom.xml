@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>base-alarm</artifactId>
-
+    <description>告警服务</description>
 
 </project>
