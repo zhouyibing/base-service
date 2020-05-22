@@ -64,9 +64,9 @@ public class LotteryService {
     @Transactional
     public PrizeModel luckyDraw(Long userId, Long activityId) {
         //1.判断用户是否抽过奖
-        /*if(hasParticipated(userId, activityId)) {
-            throw new BusiException("已参加过抽奖");
-        }*/
+        if(hasParticipated(userId, activityId)) {
+            throw ExceptionUtil.doThrow(ErrorCode.BIZ_ERROR.msg("已参加过抽奖"));
+        }
         //2.概率随机抽取奖品
         PrizeModel prize = probabilityRandom(activityId);
         //3.保存抽奖纪录
