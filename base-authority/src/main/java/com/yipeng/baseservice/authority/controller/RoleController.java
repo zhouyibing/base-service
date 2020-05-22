@@ -1,10 +1,9 @@
 package com.yipeng.baseservice.authority.controller;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.yipeng.baseservice.authority.param.RoleParam;
 import com.yipeng.baseservice.authority.param.RoleRightsParam;
 import com.yipeng.baseservice.authority.param.UserRoleParam;
+import com.yipeng.baseservice.authority.result.UserPermissions;
 import com.yipeng.framework.core.result.Result;
-import com.yipeng.framework.core.utils.Precondition;
 import com.yipeng.framework.core.web.controller.BaseController;
 import com.yipeng.baseservice.authority.service.RoleService;
 import com.yipeng.baseservice.authority.api.RoleFacade;

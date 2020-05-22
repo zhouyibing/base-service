@@ -27,18 +27,18 @@ public class RightsController extends BaseController<RightsParam,RightsResult, R
 
     @PostMapping("/disfranchise")
     @ApiOperation("权限收回")
-    public Result<Boolean> disfranchise(@ApiParam(name = "appId", value = "应用id") @RequestParam String appId,
-                               @ApiParam(name = "updaterId", value = "更新者id") @RequestParam String updaterId,
-                               @ApiParam(name = "rightsIdList", value = "权限id列表") @RequestBody List<Long> rightsIdList) {
+    public Result<Boolean> disfranchise(@ApiParam(name = "appId", value = "应用id", required = true) @RequestParam String appId,
+                               @ApiParam(name = "updaterId", value = "更新者id", required = true) @RequestParam String updaterId,
+                               @ApiParam(name = "rightsIdList", value = "权限id列表", required = true) @RequestBody List<Long> rightsIdList) {
         service.disfranchise(appId, updaterId, rightsIdList);
         return Result.success(true);
     }
 
     @PostMapping("/enableRights")
     @ApiOperation("权限启用")
-    public Result<Boolean> enableRights(@ApiParam(name = "appId", value = "应用id") @RequestParam String appId,
-                               @ApiParam(name = "updaterId", value = "更新者id") @RequestParam String updaterId,
-                               @ApiParam(name = "rightsIdList", value = "权限id列表") @RequestBody List<Long> rightsIdList) {
+    public Result<Boolean> enableRights(@ApiParam(name = "appId", value = "应用id", required = true) @RequestParam String appId,
+                               @ApiParam(name = "updaterId", value = "更新者id", required = true) @RequestParam String updaterId,
+                               @ApiParam(name = "rightsIdList", value = "权限id列表", required = true) @RequestBody List<Long> rightsIdList) {
         service.enableRights(appId, updaterId, rightsIdList);
         return Result.success(true);
     }

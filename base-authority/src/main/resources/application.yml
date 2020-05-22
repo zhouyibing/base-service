@@ -40,6 +40,8 @@ logging:
 spring:
   application:
     name: base-authority
+    config:
+      location: classpath:/authority.yml
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

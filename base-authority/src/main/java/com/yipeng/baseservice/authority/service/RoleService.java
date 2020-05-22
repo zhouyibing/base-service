@@ -8,24 +8,30 @@ import com.yipeng.baseservice.authority.constant.AuthorityErrorCode;
 import com.yipeng.baseservice.authority.dao.RoleDao;
 import com.yipeng.baseservice.authority.dao.RoleRightsDao;
 import com.yipeng.baseservice.authority.dao.UserRoleDao;
-import com.yipeng.baseservice.authority.model.db.RightsModel;
-import com.yipeng.baseservice.authority.model.db.RoleModel;
-import com.yipeng.baseservice.authority.model.db.RoleRightsModel;
-import com.yipeng.baseservice.authority.model.db.UserRoleModel;
+import com.yipeng.baseservice.authority.model.db.*;
 import com.yipeng.baseservice.authority.param.RoleRightsParam;
 import com.yipeng.baseservice.authority.param.UserRoleParam;
+import com.yipeng.baseservice.authority.result.RoleResult;
+import com.yipeng.baseservice.authority.result.ThinRights;
+import com.yipeng.baseservice.authority.result.ThinRole;
+import com.yipeng.baseservice.authority.result.UserPermissions;
+import com.yipeng.framework.core.constants.BooleanEnum;
 import com.yipeng.framework.core.constants.Constants;
 import com.yipeng.framework.core.exception.ErrorCode;
 import com.yipeng.framework.core.exception.ExceptionUtil;
+import com.yipeng.framework.core.model.db.BaseModel;
 import io.swagger.annotations.ApiModel;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.yipeng.framework.core.service.BaseService;
 import org.springframework.util.CollectionUtils;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -38,9 +44,11 @@ public class RoleService extends BaseService<RoleModel, RoleDao> {
     @Autowired
     @JsonIgnore
     private RoleRightsDao roleRightsDao;
+
     @Autowired
     @JsonIgnore
     private UserRoleDao userRoleDao;
+
     @Autowired
     @JsonIgnore
     private RightsService rightsService;
@@ -161,5 +169,22 @@ public class RoleService extends BaseService<RoleModel, RoleDao> {
         update.setStatus(AuthStatus.DISABLED.getCode().byteValue());
         update.setUpdaterId(userRoleParam.getUpdaterId());
         userRoleDao.updateByExampleSelective(update, example);
+    }
+
+    public List<ThinRole> queryUserRoles(String appId, Long userId) {
+        Example userRoleExample = new Example(UserRoleModel.class);
+        userRoleExample.createCriteria().andEqualTo("userId", userId);
+        List<Long> roleIds = new ArrayList<>();
+        Optional.ofNullable(userRoleDao.queryByExample(userRoleExample))
+                .ifPresent(userRoleModels -> userRoleModels.forEach(userRoleModel -> roleIds.add(userRoleModel.getRoleId())));
+
+        Example roleExample = new Example(RoleModel.class);
+        roleExample.createCriteria().andIn(BaseModel.ID, roleIds)
+                .andEqualTo("appId", appId)
+                .andEqualTo(BaseModel.LOGIC_DELETE, BooleanEnum.FALSE.getCode())
+                .andEqualTo("status", AuthStatus.ENABLED.getCode().byteValue());
+        List<ThinRole> thinRoles = queryByExample(roleExample, ThinRole.class);
+
+        return thinRoles;
     }
 }
