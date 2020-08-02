@@ -23,14 +23,14 @@ dev-framework:
     httpValue:
       pathPatterns: '/base-app/api/**'
     ignorePaths: '/**/save*,/**/updateList,/**/delete*,/**/create*,/**/logic*,/**/*ByPk*,/**/appInstance/update'
-    classPathUrlPrefix: 'com.yipeng.baseservice.app.controller.**@/base-app/api'
+    classPathUrlPrefix: 'com.fido.baseservice.app.controller.**@/base-app/api'
 
 
 ###日志配置###
 logging:
   level:
     root: INFO
-    com.yipeng.*: DEBUG
+    com.fido.*: DEBUG
     org.apache.ibatis: DEBUG
     com.github.pagehelper: DEBUG
     com.github.pagehelper.mapper: INFO
@@ -86,7 +86,7 @@ pagehelper:
 
 ###swagger配置###
 swagger:
-  basePackage: com.yipeng.baseservice
+  basePackage: com.fido.baseservice
   title: 应用服务api
   description: 应用服务api
   version: 1.1

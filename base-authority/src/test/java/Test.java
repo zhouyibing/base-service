@@ -1,6 +1,6 @@
 import com.google.common.collect.Lists;
-import com.yipeng.baseservice.authority.configuration.JwtCofnig;
-import com.yipeng.baseservice.authority.utils.JwtTokenUtil;
+import com.fido.baseservice.authority.configuration.JwtCofnig;
+import com.fido.baseservice.authority.utils.JwtTokenUtil;
 
 /**
  * @author: yibingzhou
@@ -8,7 +8,7 @@ import com.yipeng.baseservice.authority.utils.JwtTokenUtil;
 public class Test {
     public static void main(String[] args) {
         JwtCofnig jwtConfig = new JwtCofnig();
-        jwtConfig.setIssuer("yipeng");
+        jwtConfig.setIssuer("fido");
         jwtConfig.setBase64Secret("eWlwZW5nODg4OA==");
         jwtConfig.setExpiresSecond(1800000);
         String token = JwtTokenUtil.createToken("183493", "001001", Lists.newArrayList("MEMBER","USER"), jwtConfig);

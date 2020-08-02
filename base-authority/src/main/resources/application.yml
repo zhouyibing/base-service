@@ -24,13 +24,13 @@ dev-framework:
       pathPatterns: '/base-app/api/**'
     timeout: 100
     ignorePaths: ''
-    classPathUrlPrefix: 'com.yipeng.baseservice.authority.controller.**@/base-authority/api'
+    classPathUrlPrefix: 'com.fido.baseservice.authority.controller.**@/base-authority/api'
 
 ###日志配置###
 logging:
   level:
     root: INFO
-    com.yipeng.*: DEBUG
+    com.fido.*: DEBUG
     org.apache.ibatis: DEBUG
     com.github.pagehelper: DEBUG
     com.github.pagehelper.mapper: INFO
@@ -88,7 +88,7 @@ pagehelper:
 
 ###swagger配置###
 swagger:
-  basePackage: com.yipeng.baseservice.authority
+  basePackage: com.fido.baseservice.authority
   title: base-authority服务api
   description: base-authority服务api
   version: 1.1

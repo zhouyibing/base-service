@@ -1,7 +1,7 @@
 ##jwt配置
 jwt:
   # 代表这个JWT的发行者，
-  issuer: yipeng
+  issuer: fido
   # 密钥, 经过Base64加密, 可自行替换
   base64Secret: eWlwZW5nODg4OA==
   # 过期时间，单位毫秒
